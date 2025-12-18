@@ -70,6 +70,7 @@ const { class: className, id, links, items } = Astro.props
           <TileMedia>
             <Image
               class="bg-muted aspect-3/4 object-contain p-6"
+              sizes="600px"
               {...(image || images?.[0])}
             />
           </TileMedia>

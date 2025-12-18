@@ -1,27 +1,26 @@
 ---
 title: Header
 description: A layout component for the top section of a page.
+sidebar:
+  badge:
+    text: ⋅
+    variant: success
 ---
 
-```astro live
----
-import { Button } from "@/components/ui/button"
-import { Header, HeaderActions, HeaderContent } from "@/components/ui/header"
-import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
----
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Icon } from "@/components/ui/icon"
 
-<Header>
-  <HeaderContent>
-    <Logo href="/">
-      <LogoText>fulldev/ui</LogoText>
-    </Logo>
-    <HeaderActions class="ml-auto">
-      <Button size="sm" variant="ghost">Sign In</Button>
-      <Button size="sm">Sign Up</Button>
-    </HeaderActions>
-  </HeaderContent>
-</Header>
-```
+<Alert class="not-content">
+  <Icon name="alert-circle" />
+  <AlertTitle>Work in progress</AlertTitle>
+  <AlertDescription>
+    This header component is a work in progress. To see it in action, have
+    a look at:
+    <a class="text-primary inline" href="/blocks/header/">
+      /blocks/header/
+    </a>
+  </AlertDescription>
+</Alert>
 
 ## Installation
 
@@ -33,10 +32,11 @@ pnpm dlx shadcn@latest add @fulldev-ui/header
 
 ## Usage
 
-````ts
+```ts
 import { Button } from "@/components/ui/button"
 import { Header, HeaderActions, HeaderContent } from "@/components/ui/header"
-import { Logo, LogoImage, LogoText } from "@/components/ui/logo"```
+import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
+```
 
 ```astro
 <Header>
@@ -50,11 +50,11 @@ import { Logo, LogoImage, LogoText } from "@/components/ui/logo"```
     </HeaderActions>
   </HeaderContent>
 </Header>
-````
+```
 
 ## Examples
 
-### Outline
+### Floating
 
 ```astro live
 ---
@@ -63,73 +63,7 @@ import { Header, HeaderActions, HeaderContent } from "@/components/ui/header"
 import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
 ---
 
-<Header variant="ghost">
-  <HeaderContent>
-    <Logo href="/">
-      <LogoText>fulldev/ui</LogoText>
-    </Logo>
-    <HeaderActions class="ml-auto">
-      <Button size="sm" variant="ghost">Sign In</Button>
-      <Button size="sm">Sign Up</Button>
-    </HeaderActions>
-  </HeaderContent>
-</Header>
-```
-
-### Muted
-
-```astro live
----
-import { Button } from "@/components/ui/button"
-import { Header, HeaderActions, HeaderContent } from "@/components/ui/header"
-import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
----
-
-<Header variant="muted">
-  <HeaderContent>
-    <Logo href="/">
-      <LogoText>fulldev/ui</LogoText>
-    </Logo>
-    <HeaderActions class="ml-auto">
-      <Button size="sm" variant="ghost">Sign In</Button>
-      <Button size="sm">Sign Up</Button>
-    </HeaderActions>
-  </HeaderContent>
-</Header>
-```
-
-### Float
-
-```astro live
----
-import { Button } from "@/components/ui/button"
-import { Header, HeaderActions, HeaderContent } from "@/components/ui/header"
-import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
----
-
-<Header frame="float">
-  <HeaderContent>
-    <Logo href="/">
-      <LogoText>fulldev/ui</LogoText>
-    </Logo>
-    <HeaderActions class="ml-auto">
-      <Button size="sm" variant="ghost">Sign In</Button>
-      <Button size="sm">Sign Up</Button>
-    </HeaderActions>
-  </HeaderContent>
-</Header>
-```
-
-### Float muted
-
-```astro live
----
-import { Button } from "@/components/ui/button"
-import { Header, HeaderActions, HeaderContent } from "@/components/ui/header"
-import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
----
-
-<Header frame="float" variant="muted">
+<Header variant="floating">
   <HeaderContent>
     <Logo href="/">
       <LogoText>fulldev/ui</LogoText>

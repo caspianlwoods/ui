@@ -8,11 +8,13 @@ interface Props extends ComponentProps<typeof Button> {}
 const { ...props } = Astro.props
 
 const slot = await Astro.slots.render("default")
+
+console.log(props)
 ---
 
 {
   slot?.trim().length > 0 && (
-    <Button data-slot="sheet-trigger" {...props}>
+    <Button data-slot="sheet-trigger" name="sheet-trigger" {...props}>
       <Fragment set:html={slot} />
     </Button>
   )

@@ -8,7 +8,7 @@ description: Install and configure fulldev/ui for Astro
 If you don't have a project yet, create one using the following command:
 
 ```bash
-npx create-astro@latest astro-fulldev-ui  --template with-tailwindcss --install --git
+npx create-astro@latest astro-fulldev  --template with-tailwindcss --install --git
 ```
 
 ### Edit tsconfig.json file
@@ -32,7 +32,7 @@ Add the following code to the `tsconfig.json` file to resolve paths:
 
 ### Run the CLI
 
-As this project is distrubuted as a shadcn registry, run the `shadcn` init command to setup your project:
+As this project is distributed as a shadcn registry, run the `shadcn` init command to setup your project:
 
 ```bash
 npx shadcn@latest init

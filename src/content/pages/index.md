@@ -1,6 +1,6 @@
 ---
 sections:
-  - block: hero-1
+  - block: hero-14
     link:
       text: Inspired by shadcn/ui, but built for Astro 🚀
     html: |
@@ -22,24 +22,44 @@ sections:
       - /src/content/pages/blocks/reviews-1.md
       - /src/content/pages/blocks/faqs-2.md
       - /src/content/pages/blocks/services-1.md
-  - block: features-2
+  - block: features-5
     items:
       - title: Built for developers
-        description: Work in the framework you know and love, het performance benefits of Astro out of the box.
+        description: Work in the framework you know and love, get performance benefits of Astro out of the box.
         icon: code
       - title: Built for content
         description: Integrates seamlessly with Astro content collections, which works great with AI agents.
         icon: file-text
       - title: Built for agents
-        description: Because we use the same API as shadcn/ui, AI agent understand how to use it.
+        description: Because we use the same API as shadcn/ui, AI agents understand how to use it.
         icon: rocket
-  - block: cta-1
+  - block: content-5
     html: |
-      <h2>Build performant content websites faster</h2>
-      <p>Craft stunning content websites in less time with <strong>fulldev/ui</strong> components.</p>
+      <h2>Complete Astro UI <strong>components library</strong></h2>
+      <p>fulldev/ui is an Astro component library built with vanilla Astro and zero framework dependencies. Our Astro UI components are fully compatible with shadcn/ui design patterns and work seamlessly with Astro content collections. Perfect for building content-driven websites.</p>
     links:
       - text: View Components
-        href: /components/
+        href: /docs/components/
+    image:
+      src: ../../assets/my-accordion.astro.png
+      alt: Astro UI Components
+  - block: content-6
+    html: |
+      <h2>Prebuilt Astro <strong>content blocks</strong></h2>
+      <p>Skip the repetitive work. Our library of Astro blocks includes ready-to-use sections like heroes, reviews, pricings, and call-to-actions. Designed for content-first websites, these pre-built Astro blocks help you scaffold complex layouts faster while maintaining design consistency.</p>
+    links:
+      - text: View Blocks
+        href: /blocks/
+    image:
+      src: ../../assets/my-cta.astro.png
+      alt: Astro Blocks
+  - block: cta-8
+    html: |
+      <h2><strong>Free and open-source</strong> Astro UI component library</h2>
+      <p>Everything you need to build stunning content-driven websites with zero framework dependencies. Complete Astro components, pre-built blocks, and shadcn/ui compatibility.</p>
+    links:
+      - text: View Components
+        href: /docs/components/
       - text: View Blocks
         href: /blocks/
 seo:

@@ -1,4 +1,5 @@
 ---
+import { cn } from "@/lib/utils"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Icon } from "@/components/ui/icon"
@@ -9,6 +10,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
+import { Marquee, MarqueeContent } from "@/components/ui/marquee"
 import {
   NativeCarousel,
   NativeCarouselContent,
@@ -23,7 +25,12 @@ import {
   SectionContent,
   SectionProse,
 } from "@/components/ui/section"
-import { Tile, TileContent, TileDescription } from "@/components/ui/tile"
+import {
+  Tile,
+  TileContent,
+  TileDescription,
+  TileTitle,
+} from "@/components/ui/tile"
 
 interface Props {
   class?: string
@@ -38,7 +45,6 @@ interface Props {
     title?: string
     description?: string
     rating?: number
-    href?: string
     image?: {
       src: string
       alt: string
@@ -47,11 +53,11 @@ interface Props {
   }[]
 }
 
-const { class: className, id, links, items } = Astro.props
+const { class: className, id, links, items = [] } = Astro.props
 ---
 
-<Section class={className} id={id}>
-  <SectionContent>
+<Section class={cn("gap-6", className)} id={id}>
+  <SectionContent class="mb-10">
     <SectionProse>
       <slot />
     </SectionProse>
@@ -66,33 +72,34 @@ const { class: className, id, links, items } = Astro.props
       }
     </SectionActions>
   </SectionContent>
-  <NativeCarousel>
-    <NativeCarouselContent>
-      {
-        items?.map(({ title, description, rating, href, image, tagline }) => (
-          <NativeCarouselItem>
-            <Tile href={href}>
-              <Rating rating={rating} />
-              <TileContent>
-                <TileDescription>{description}</TileDescription>
-              </TileContent>
-              <Item class="p-0">
-                <ItemMedia>
-                  <Avatar>
-                    <AvatarImage src={image?.src} alt={image?.alt} />
-                  </Avatar>
-                </ItemMedia>
-                <ItemContent>
-                  <ItemTitle>{title}</ItemTitle>
-                  <ItemDescription>{tagline}</ItemDescription>
-                </ItemContent>
-              </Item>
-            </Tile>
-          </NativeCarouselItem>
-        ))
-      }
-    </NativeCarouselContent>
-    <NativeCarouselPrevious />
-    <NativeCarouselNext />
-  </NativeCarousel>
+  {
+    (["left", "right"] as const).map((direction) => (
+      <Marquee class="-mx-(--section-px)">
+        <MarqueeContent direction={direction} pauseOnHover>
+          {[...items, ...items]?.map(
+            ({ title, description, rating, image, tagline }) => (
+              <Tile class="shadow-none" variant="floating">
+                <Item class="p-0">
+                  <ItemMedia>
+                    <Avatar class="size-10">
+                      <AvatarImage src={image?.src} alt={image?.alt} />
+                    </Avatar>
+                  </ItemMedia>
+                  <ItemContent>
+                    <ItemTitle>{title}</ItemTitle>
+                    <ItemDescription>{tagline}</ItemDescription>
+                  </ItemContent>
+                </Item>
+                <Rating rating={rating} />
+                <TileContent>
+                  <TileTitle>{title}</TileTitle>
+                  <TileDescription>{description}</TileDescription>
+                </TileContent>
+              </Tile>
+            )
+          )}
+        </MarqueeContent>
+      </Marquee>
+    ))
+  }
 </Section>

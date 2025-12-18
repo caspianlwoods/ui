@@ -1,17 +1,20 @@
 ---
 title: Price
 description: A flexible price display component for showing pricing information.
+sidebar:
+  badge:
+    text: ⋅
+    variant: success
 ---
 
 ```astro live
 ---
-import { Price, PriceValue, PriceUnit } from "@/components/ui/price"
+import { Price, PriceUnit, PriceValue } from "@/components/ui/price"
 ---
 
 <Price>
-  <PriceUnit>$</PriceUnit>
-  <PriceValue>99</PriceValue>
-  <span class="text-sm text-muted-foreground">/month</span>
+  <PriceValue price={99} />
+  <PriceUnit>month</PriceUnit>
 </Price>
 ```
 
@@ -23,48 +26,17 @@ To install the price component, run the following command:
 pnpm dlx shadcn@latest add @fulldev-ui/price
 ```
 
-## Usage
-
-```ts
-import { Price, PriceValue, PriceUnit } from "@/components/ui/price"
-```
-
-```astro
-<Price>
-  <PriceUnit>$</PriceUnit>
-  <PriceValue>99</PriceValue>
-  <span>/month</span>
-</Price>
-```
-
 ## Examples
 
 ### With Currency
 
 ```astro live
 ---
-import { Price, PriceValue, PriceUnit } from "@/components/ui/price"
+import { Price, PriceUnit, PriceValue } from "@/components/ui/price"
 ---
 
 <Price>
-  <PriceUnit>$</PriceUnit>
-  <PriceValue>29</PriceValue>
-  <span class="text-sm text-muted-foreground">/month</span>
+  <PriceValue price={29} currency="EUR" />
+  <PriceUnit>month</PriceUnit>
 </Price>
 ```
-
-### With Different Units
-
-```astro live
----
-import { Price, PriceValue, PriceUnit } from "@/components/ui/price"
----
-
-<Price>
-  <PriceValue>9,999</PriceValue>
-  <PriceUnit>JPY</PriceUnit>
-  <span class="text-sm text-muted-foreground">/year</span>
-</Price>
-```
-
-
