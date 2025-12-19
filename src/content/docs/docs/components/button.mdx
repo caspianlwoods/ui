@@ -20,7 +20,7 @@ import { Icon } from "@/components/ui/icon"
 To install the button component, run the following command:
 
 ```bash
-pnpm dlx shadcn@latest add @fulldev-ui/button
+npx shadcn@latest add @fulldev/button
 ```
 
 ## Usage
@@ -186,16 +186,3 @@ import { Spinner } from "@/components/ui/spinner"
   Submit
 </Button>
 ```
-
-## API Reference
-
-### Button
-
-The `Button` component is a wrapper around the `button`, `a` or `label` element that adds a variety of styles and functionality.
-
-| Prop      | Type                                                                          | Default     |
-| --------- | ----------------------------------------------------------------------------- | ----------- |
-| `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"` | `"default"` |
-| `size`    | `"default" \| "sm" \| "lg" \| "icon" \| "icon-sm" \| "icon-lg"`               | `"default"` |
-| `as`      | `"button" \| "a" \| "label"`                                                  | `"button"`  |
-| `href`    | `string`                                                                      | -           |

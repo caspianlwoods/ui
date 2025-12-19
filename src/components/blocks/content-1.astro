@@ -47,8 +47,8 @@ const { class: className, id, list, links, image } = Astro.props
     </List>
     <SectionActions>
       {
-        links?.map(({ icon, text, ...button }, i) => (
-          <Button variant={i === 0 ? "default" : "outline"} {...button}>
+        links?.map(({ icon, text, ...link }, i) => (
+          <Button variant={i === 0 ? "default" : "outline"} {...link}>
             {icon && <Icon name={icon} />}
             {text}
           </Button>
@@ -57,6 +57,6 @@ const { class: className, id, list, links, image } = Astro.props
     </SectionActions>
   </SectionContent>
   <SectionMedia>
-    <Image {...image} />
+    <Image sizes="(min-width: 1536px) 1536px, 100vw" {...image} />
   </SectionMedia>
 </Section>

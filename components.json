@@ -18,5 +18,7 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@fulldev": "http://localhost:4321/r/{name}.json"
+  }
 }

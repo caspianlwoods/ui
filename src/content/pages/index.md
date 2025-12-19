@@ -4,8 +4,8 @@ sections:
     link:
       text: Inspired by shadcn/ui, but built for Astro 🚀
     html: |
-      <h1><strong>Astro UI component and block library</strong> compatible with shadcn/ui</h1>
-      <p>Vanilla Astro components with no framework dependencies - Shadcn/ui compatible - content-first components like section, tile and prose.</p>
+      <h1><strong><span class="text-primary">Astro</span> UI component and block library</strong> compatible with shadcn/ui</h1>
+      <p>Vanilla Astro components with no framework dependencies - Shadcn/ui compatible - content-first components like section and tile.</p>
     links:
       - text: View Components
         href: /docs/components/
@@ -13,15 +13,20 @@ sections:
         href: /blocks/
   - block: blocks-4
     refs:
-      - /src/content/pages/blocks/hero-4.md
-      - /src/content/pages/blocks/features-3.md
-      - /src/content/pages/blocks/products-2.md
-      - /src/content/pages/blocks/stats-2.md
-      - /src/content/pages/blocks/logos-1.md
-      - /src/content/pages/blocks/articles-1.md
-      - /src/content/pages/blocks/reviews-1.md
+      - /src/content/pages/blocks/articles-3.md
+      - /src/content/pages/blocks/contact-2.md
+      - /src/content/pages/blocks/cta-3.md
+      - /src/content/pages/blocks/cta-5.md
       - /src/content/pages/blocks/faqs-2.md
-      - /src/content/pages/blocks/services-1.md
+      - /src/content/pages/blocks/features-5.md
+      - /src/content/pages/blocks/footer-1.md
+      - /src/content/pages/blocks/header-1.md
+      - /src/content/pages/blocks/logos-2.md
+      - /src/content/pages/blocks/pricings-3.md
+      - /src/content/pages/blocks/products-1.md
+      - /src/content/pages/blocks/reviews-4.md
+      - /src/content/pages/blocks/services-4.md
+      - /src/content/pages/blocks/services-5.md
   - block: features-5
     items:
       - title: Built for developers
@@ -41,7 +46,7 @@ sections:
       - text: View Components
         href: /docs/components/
     image:
-      src: ../../assets/my-accordion.astro.png
+      src: ../../assets/my-accordion-code-example-homepage.astro.webp
       alt: Astro UI Components
   - block: content-6
     html: |
@@ -51,7 +56,7 @@ sections:
       - text: View Blocks
         href: /blocks/
     image:
-      src: ../../assets/my-cta.astro.png
+      src: ../../assets/my-cta-code-example-homepage.astro.webp
       alt: Astro Blocks
   - block: cta-8
     html: |
@@ -65,7 +70,4 @@ sections:
 seo:
   title: Astro UI component and block library for content-driven websites - fulldev/ui
   description: fulldev/ui is a complete Astro component library with ready-to-use UI components and blocks. Build content-driven websites faster with our Astro UI components library designed for developers.
-  image:
-    src: ../../assets/placeholder.webp
-    alt: Home
 ---

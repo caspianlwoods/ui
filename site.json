@@ -3,8 +3,8 @@
   "name": "fulldev/ui",
   "defaultLocale": "en",
   "locales": ["en"],
-  "favicon": "src/assets/favicon.svg",
-  "theme": "light",
+  "favicon": "src/assets/logo-fulldev.svg",
+  "theme": "",
   "fonts": {
     "base": "Inter",
     "heading": "Inter"

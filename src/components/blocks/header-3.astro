@@ -1,5 +1,4 @@
 ---
-import type { ComponentProps } from "astro/types"
 import MenuIcon from "lucide-static/icons/menu.svg"
 
 import { Button } from "@/components/ui/button"
@@ -11,7 +10,6 @@ import {
 import { Header, HeaderActions } from "@/components/ui/header"
 import { Icon } from "@/components/ui/icon"
 import { Logo, LogoImage, LogoText } from "@/components/ui/logo"
-import { ModeToggle } from "@/components/ui/mode-toggle"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -32,10 +30,15 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 interface Props {
-  name?: string
-  image?: ComponentProps<typeof LogoImage>
+  logo?: {
+    src?: string
+    alt?: string
+    text?: string
+    href?: string
+  }
   links?: {
     icon?: string
     text?: string
@@ -53,7 +56,7 @@ interface Props {
   }[]
 }
 
-const { name, image, menus, links, socials } = Astro.props
+const { logo, menus, links, socials } = Astro.props
 
 const githubStarCount = (
   await (await fetch("https://api.github.com/repos/fulldotdev/ui")).json()
@@ -61,9 +64,9 @@ const githubStarCount = (
 ---
 
 <Header class="bg-background/60 backdrop-blur-md">
-  <Logo href="/">
-    <LogoImage {...image} />
-    <LogoText>{name}</LogoText>
+  <Logo href={logo?.href || "/"}>
+    <LogoImage src={logo?.src} alt={logo?.alt} />
+    <LogoText>{logo?.text}</LogoText>
   </Logo>
   <NavigationMenu class="mr-auto @max-5xl:hidden">
     <NavigationMenuList>
@@ -105,7 +108,7 @@ const githubStarCount = (
     </NavigationMenuList>
   </NavigationMenu>
   <HeaderActions class="@max-5xl:hidden">
-    <ModeToggle />
+    <ThemeToggle />
     {
       socials?.map((social) => (
         <>
@@ -116,11 +119,11 @@ const githubStarCount = (
       ))
     }
     {
-      links?.map(({ icon, text, ...button }, i) => (
+      links?.map(({ icon, text, ...link }, i) => (
         <Button
           variant={i === links.length - 1 ? "default" : "outline"}
           size="sm"
-          {...button}
+          {...link}
         >
           {icon && <Icon name={icon} />}
           {text}
@@ -138,7 +141,12 @@ const githubStarCount = (
     </Button>
   </HeaderActions>
   <Sheet class="first:ml-auto @5xl:hidden">
-    <SheetTrigger class="@5xl:hidden" variant="ghost" size="icon">
+    <SheetTrigger
+      class="@5xl:hidden"
+      variant="ghost"
+      size="icon"
+      name="open-menu-button"
+    >
       <MenuIcon class="size-5" />
     </SheetTrigger>
     <SheetContent class="overflow-y-auto px-4 py-12">
@@ -179,11 +187,11 @@ const githubStarCount = (
       </SidebarMenu>
       <HeaderActions class="flex flex-col gap-2">
         {
-          links?.map(({ icon, text, ...button }, i) => (
+          links?.map(({ icon, text, ...link }, i) => (
             <Button
               variant={i === links.length - 1 ? "default" : "secondary"}
               class="w-full"
-              {...button}
+              {...link}
             >
               {icon && <Icon name={icon} />}
               {text}
